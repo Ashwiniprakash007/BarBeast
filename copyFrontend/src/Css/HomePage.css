@@ -8,6 +8,13 @@ body {
   /* background: linear-gradient(135deg, #000000  , #333333 ); */
 
 }
+.company_logo{
+  height:100vh;
+  width:100%;
+  border:1px solid red;
+  display: block;         /* Removes any inline spacing */
+  margin: auto;        
+}
   .container {
     display: flex;
     flex-direction: column;
