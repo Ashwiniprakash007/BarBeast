@@ -1,0 +1,57 @@
+.main-conatiner{
+}
+
+/* CSS for the card grid layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width:100%;
+    gap: 20px; /* Space between cards */
+    padding: 20px;
+    justify-items: center;
+  }
+  
+  /* Individual card styles */
+  .card {
+    background: #FFB74D;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width:200px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    gap:20px
+  }
+  
+  /* Image styles */
+  .card img {
+    width: 100%;
+    height: 150px;
+    /* object-fit: cover; */
+  }
+  
+  /* Title styles */
+  .card h3 {
+    margin: 10px 0;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  /* Hover effect */
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  .Heading-text{
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Responsive behavior */
+  @media (max-width: 600px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 cards per row for small screens */
+    }
+  }
+  
