@@ -4,10 +4,12 @@ import glass_image from "../public/wine_glass.png";
 import water_glass from "../public/water_glass.png";
 import { TemporaryDrawer } from "../components/Drawer";
 import { TopDrawer } from "../components/TopDrawer";
+import { useDrinkContext } from "../Context/DrinkContext";
 
 const HomePage = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [topDrawerOpen, setTopDrawerOpen] = useState(false);
+  const {handleDrinkType} = useDrinkContext()
 
 
   const toggleDrawer = (newOpen) => {
@@ -18,6 +20,11 @@ const HomePage = () => {
     setTopDrawerOpen(newOpen);
   };
 
+  const handleClickDrink = () => {
+    toggleTopDrawer(true);
+    handleDrinkType("mixedDrink")
+  }
+
   return (
     <div>
       <div className="container">
@@ -27,7 +34,7 @@ const HomePage = () => {
           <div className="icon red" >
             <img
               className="glass_image"
-              onClick={() => toggleTopDrawer(true)}
+              onClick={handleClickDrink}
               src={glass_image}
               alt="img.png"
             />

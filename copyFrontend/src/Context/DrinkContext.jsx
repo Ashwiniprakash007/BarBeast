@@ -13,13 +13,18 @@ export const useDrinkContext = () => {
 // Provider component to wrap your app and provide context
 export const DrinkProvider = ({ children }) => {
   const [selectedDrinkTitle, setSelectedDrinkTitle] = useState(null);
+  const [drinkType, setDrinkType] = useState(null);
 
   const setDrinkTitle = (title) => {
     setSelectedDrinkTitle(title);
   };
 
+  const handleDrinkType = (name) => {
+    setDrinkType(name)
+  }
+
   return (
-    <DrinkContext.Provider value={{ selectedDrinkTitle, setDrinkTitle }}>
+    <DrinkContext.Provider value={{ selectedDrinkTitle, setDrinkTitle , drinkType , handleDrinkType}}>
       {children}
     </DrinkContext.Provider>
   );

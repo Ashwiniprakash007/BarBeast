@@ -110,12 +110,12 @@ import { useDrinkContext } from "../Context/DrinkContext"; // Import the context
 const MixedDrinksList = () => {
   const [open, setOpen] = useState(false);
   const [selectedDrink, setSelectedDrink] = useState(null);
- // const { setDrinkTitle, selectedDrinkTitle } = useDrinkContext(); // Use the context to set the selected drink title
+  const { setDrinkTitle, selectedDrinkTitle } = useDrinkContext(); // Use the context to set the selected drink title
 
   const handleOpen = (drink) => {
     setSelectedDrink(drink);
     setOpen(true);
-    //setDrinkTitle(drink.title); // Set the selected drink title in the context
+    setDrinkTitle(drink.title); // Set the selected drink title in the context
   };
 
   const handleClose = () => {

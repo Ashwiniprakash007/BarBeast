@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-//import { DrinkProvider } from './Context/DrinkContext';
+import { DrinkProvider } from '../../demoPostApp/src/Context/DrinkContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-    // <DrinkProvider>
-    <App />
-    // </DrinkProvider>
+   <DrinkProvider>
+      <App />
+  </DrinkProvider>
   
 );
 

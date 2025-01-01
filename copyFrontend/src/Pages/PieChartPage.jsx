@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { PieChart } from "@mui/x-charts/PieChart";
 import "../Css/PieChartPage.css"; // Import the updated CSS
-import EditDrinkModal from "../components/EditDrinkModal ";
+import axios from "axios";
+import { useDrinkContext } from "../Context/DrinkContext";
+import EditDrinkModal from "../components/EditDrinkModal "
+
 
 const PieChartPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const selectedOptions = location.state?.selectedOptions || [];
+  const { selectedDrinkTitle , drinkType} = useDrinkContext();
 
   // Initial percentage values for each drink
   const initialPercentages = selectedOptions.map(() => 100 / selectedOptions.length);
@@ -42,22 +46,15 @@ const PieChartPage = () => {
 
     const handleSubmit = async () => {
     const payload = {
-      //title: selectedDrinkTitle, // Use the title from context
+      type: drinkType,
+      title: selectedDrinkTitle, // Use the title from context
       selectedOptions: selectedOptions,
       percentages: percentages,
     };
-console.log("payload", payload)
+
     try {
-      const response = await fetch("http://localhost:5000/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json", // Ensure the server knows the content type
-        },
-        body: JSON.stringify(payload), // Convert the payload to a JSON string
-      });
-      const result = await response.json();
+       await axios.post("http://localhost:8000/submit",payload);
         alert("Data submitted successfully!");
-        console.log(result); 
     } catch (error) {
       console.error("Error submitting data:", error);
       alert("An error occurred while submitting data.");
